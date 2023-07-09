@@ -8,14 +8,15 @@ public class Catalogo {
 	protected String titolo;
 	protected int annoPublicazione;
 	protected int numeroPagine;
+	protected String tipo;
 
 	// costruttore
-	public Catalogo(String titolo, int annoPublicazione, int numeroPagine) {
+	public Catalogo(String titolo, int annoPublicazione, int numeroPagine, String tipo) {
 		this.setISBN(UUID.randomUUID());
 		this.setTitolo(titolo);
 		this.setAnnoPublicazione(annoPublicazione);
 		this.setNumeroPagine(numeroPagine);
-
+		this.setTipo(tipo);
 	}
 
 	@Override
@@ -55,6 +56,14 @@ public class Catalogo {
 
 	public void setNumeroPagine(int numeroPagine) {
 		this.numeroPagine = numeroPagine;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }

@@ -8,8 +8,8 @@ public class Libro extends Catalogo {
 	private String genere;
 
 	// definizione costruttore
-	public Libro(String titolo, int annoPublicazione, int numeroPagine, String autore, String genere) {
-		super(titolo, annoPublicazione, numeroPagine);
+	public Libro(String titolo, int annoPublicazione, int numeroPagine, String autore, String genere, String tipo) {
+		super(titolo, annoPublicazione, numeroPagine, tipo);
 		this.autore = autore;
 		this.genere = genere;
 	}

@@ -4,8 +4,8 @@ public class Rivista extends Catalogo {
 	// dichiarazione attributi
 	Periodicità periodicità;
 
-	public Rivista(String titolo, int annoPublicazione, int numeroPagine, Periodicità periodicità) {
-		super(titolo, annoPublicazione, numeroPagine);
+	public Rivista(String titolo, int annoPublicazione, int numeroPagine, Periodicità periodicità, String tipo) {
+		super(titolo, annoPublicazione, numeroPagine, tipo);
 		this.periodicità = periodicità;
 	}
 

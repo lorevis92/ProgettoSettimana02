@@ -13,10 +13,16 @@ public class App {
 	public static void main(String[] args) {
 		// definizione attributi
 		List<Catalogo> catalogo = new ArrayList<>();
-		Catalogo harryPotter = new Catalogo("Harry Potter", 2002, 323);
-		Catalogo harryPotter2 = new Catalogo("Harry Potter2", 2004, 364);
-		Libro libroYes = new Libro("Yes man!", 1986, 234, "Unknown", "Commedy");
-		Rivista vanityFair = new Rivista("Vanity Fair", 2023, 79, Periodicità.SEMESTRALE);
+		List<Catalogo> catalogoFiltratoPerISBN = new ArrayList<>();
+		List<Catalogo> catalogoFiltratoPerAnnoPubblicazione = new ArrayList<>();
+		List<Catalogo> listaLibri = new ArrayList<>();
+		List<Libro> catalogoFiltratoPerAutore = new ArrayList<>();
+
+		Libro harryPotter = new Libro("Harry Potter", 2002, 323,  "J K Rolling", "Fantasy","libro");
+		Libro harryPotter2 = new Libro("Harry Potter2", 2004, 364, "J K Rolling", "Fantasy", "libro");
+		Libro libroYes = new Libro("Yes man!", 1986, 234, "Ian Connor", "Commedy", "libro");
+		Libro libroNo = new Libro("No man!", 1983, 276, "Ian Connor", "Commedy", "libro");
+		Rivista vanityFair = new Rivista("Vanity Fair", 2023, 79, Periodicità.SEMESTRALE, "rivista");
 
 		// Aggiunta di un elemento
 		System.out.println("Aggiunta di un elemento\n");
@@ -30,6 +36,7 @@ public class App {
 		catalogo.add(libroYes);
 		catalogo.add(vanityFair);
 		catalogo.add(harryPotter2);
+		catalogo.add(libroNo);
 		System.out.println(catalogo);
 		// batsa che l'elemento inserito come paramentro sia del tipo Catalogo o un suo
 		// Discentende, ovvero Libro o Rivista
@@ -41,18 +48,18 @@ public class App {
 
 		// Ricerca di un elemento tramite ISBN
 		System.out.println("\nRicerca di Harry Potter 2 del catalogo dato il ISBN\n");
-		catalogo = catalogo.stream().filter(c -> (c.getISBN()).equals(harryPotter2.getISBN())).toList();
-		System.out.println(catalogo);
-//		Catalogo rivista = new Catalogo("HarryPorker", 233, 323);
-//		Catalogo rivista2 = new Catalogo("HarryPorker", 233, 323);
-//		System.out.println(rivista.toString());
-//		System.out.println(rivista2.toString());
-//		Libro yes = new Libro("Yes man!", 2334, 3234, "Unknown", "Commedy");
-//		System.out.println(yes.toString());
-//		Rivista riv1 = new Rivista("vanityPirl", 425, 4554, Periodicità.SEMESTRALE);
-//		System.out.println(riv1.toString());
+		catalogoFiltratoPerISBN = catalogo.stream().filter(c -> (c.getISBN()).equals(harryPotter2.getISBN())).toList();
+		System.out.println(catalogoFiltratoPerISBN);
+
+		// Ricerca di un elemento tramite anno di publicazione
+		System.out.println("Ricerca di un elemento tramite anno di publicazione 2002");
+		catalogoFiltratoPerAnnoPubblicazione = catalogo.stream().filter(c -> (c.getAnnoPublicazione() == 2002))
+				.toList();
+		System.out.println(catalogoFiltratoPerAnnoPubblicazione);
+		
+		// Ricerca di un elemento tramite autore
+		System.out.println("Ricerca di un elemento tramite autore");
+		listaLibri = catalogo.stream().filter(c -> (c.getTipo()).equals("libro")).toList();
+		// System.out.println(catalogoFiltratoPerAnnoPubblicazione);
 	}
-
-	// definizione metodo
-
 }
